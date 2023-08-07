@@ -16,6 +16,17 @@ http://localhost:5293/swagger/index.html
    dotnet run
 
 
+## Running the Application With Docker
+I have pushed the image on my Docker Hub Repository which gives access to anyone to run the code
+
+Kindly navigate to the main part of the project where docker compose stays and run 
+
+ docker-compose up
+
+This starts the app and listens on 
+
+http://localhost:5293/swagger/index.html
+
 ## Running the Test
    
 To run the tests, navigate to the root directory of the solution and execute the following command:
@@ -130,3 +141,18 @@ If you need any further assistance or have more data to include, please let me k
 
 As a result for my love in docker , the Cloud technology i woulf use for the deployment is Amazon ECS . The current config 
 of this application is in appsettings.json that is somehow risky approach. The best approach would be to use Amazon Secret Manager to securely store sensitive configuration data, including database connection strings, API keys, and other confidential information. By doing so, I can effectively mitigate the risks associated with directly embedding these sensitive values in the application configuration.
+
+
+
+Sample Payload 
+
+{
+  "cardNumber": "5399-4155-0029-1626",
+  "merchantCode": "CHK-1244O4I483",
+  "customerCode": "08080808088",
+  "currencyCode": "NAR",
+  "cvv": "089",
+  "amount": 3000,
+  "expiryMonth": 3,
+  "expiryYear": 2027
+}
