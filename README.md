@@ -147,7 +147,7 @@ If you need any further assistance or have more data to include, please let me k
 
 ### Cloud Technology
 
-Cloud Deployment
+
 For cloud deployment, Amazon ECS is the chosen technology. The current configuration, which is stored in appsettings.json, can be enhanced for security by using Amazon Secret Manager to securely store sensitive data like database connection strings and API keys.
 
 If you have any questions or need further assistance, please feel free to reach out!
