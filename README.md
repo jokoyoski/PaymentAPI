@@ -1,83 +1,68 @@
+Payment API
+
+To run thr application, please ensure you have .net installed . possibly .net 7
+
+This application uses swagger for API documentation and listens on 
+http://localhost:5293/swagger/index.html
+
+To run any migration ensure you have dotnet entity framework installed globally
+
+ To run the command kindly run : dotnet tool install --global dotnet-ef
+
+
+
+### Migrations Command 
+
+dotnet ef migrations add Init --project InfrastructureProject -s APIProject
+dotnet ef migrations add MerchantTable --project PaymentAPI.Data -s PaymentAPI
+
+
+
 ### Test Data
+### Merchants
+Here's the information presented in a tabular format:
+
+| ID                                  | Name    | IsActive | Code           | Merchant  |
+|-------------------------------------|---------|----------|----------------|-----------|
+| 7d8d410e-34d1-11ee-be56-0242ac120002 | Amazon  | true     | CHK-1244O4I483 | Apple     |
+| 830892be-34d1-11ee-be56-0242ac120002 | Apple   | true     | CHK-2939494944| Samsung   |
+| 830892be-34d2-11ee-be56-0242ac120002 | Samsung | true     | CHK-2934494944| N/A       |
 
 Below Data are Seeded in the Database
-### Merchants
-ID: 7d8d410e-34d1-11ee-be56-0242ac120002
-Name: Amazon
-IsActive: true
-Code: CHK-1244O4I483
-Merchant: Apple
-
-ID: 830892be-34d1-11ee-be56-0242ac120002
-Name: Apple
-IsActive: true
-Code: CHK-2939494944
-Merchant: Samsung
-
-ID: 830892be-34d2-11ee-be56-0242ac120002
-Name: Samsung
-IsActive: true
-Code: CHK-2934494944
-
 
 ### Banks
-Bank: HSBC
-ID: 0017cd84-34d1-11ee-be56-0242ac120002
-Bank Name: HSBC
-IsActive: true
-Sort Code: 000111
+Here's the information presented in a tabular format for the banks:
 
+| ID                                  | Bank Name | IsActive | Sort Code |
+|-------------------------------------|-----------|----------|-----------|
+| 0017cd84-34d1-11ee-be56-0242ac120002 | HSBC      | true     | 000111    |
+| 41724ce6-34d1-11ee-be56-0242ac120002 | LLoyds    | true     | 333444    |
 
-Bank: LLoyds
-ID: 41724ce6-34d1-11ee-be56-0242ac120002
-Bank Name: LLoyds
-IsActive: true
-Sort Code: 333444
+Please let me know if you need any further assistance or if you have more data to include in the table.
 
 
 ### Currency
-Currency: Naira (NAR)
-ID: 41724ce6-34d1-11ee-be56-0242ac120002
-Code: NAR
-Name: Naira
-Currency: Dollars (USD)
+Here's the information presented in a tabular format for the currencies:
 
-ID: 6a243ff0-34d1-11ee-be56-0242ac120002
-Code: USD
-Name: Dollars
-Currency: Pounds Sterling (GBP)
+| ID                                  | Code | Name            |
+|-------------------------------------|------|-----------------|
+| 41724ce6-34d1-11ee-be56-0242ac120002 | NAR  | Naira           |
+| 6a243ff0-34d1-11ee-be56-0242ac120002 | USD  | Dollars         |
+| 715430b4-34d1-11ee-be56-0242ac120002 | GBP  | Pounds Sterling |
 
-ID: 715430b4-34d1-11ee-be56-0242ac120002
-Code: GBP
-Name: Pounds Sterling
+Please let me know if you need any further assistance or if you have more data to include in the table.
 
 ### Card
 
-5399-4155-0029-1626
-CVV
-089
-Expiry Month
-3
-Experts Year
-2027
+Here's the information you provided presented in a tabular format for credit card details:
 
+| Card Number         | CVV  | Expiry Month | Expiry Year |
+|---------------------|------|--------------|-------------|
+| 5399-4155-0029-1626 | 089  | 3            | 2027        |
+| 5399415600301657    | 444  | 3            | 2026        |
+| 5399413603304457    | 222  | 5            | 2033        |
 
-5399415600301657
-CVV
-444
-Expiry Month
-3
-Experts Year
-2026
-
-
-5399413603304457
-CVV
-222
-Expiry Month
-5
-Experts Year
-2033
+Feel free to let me know if you need any further assistance or if you have more data to include in the table.
 
 
 
@@ -90,57 +75,34 @@ Database is a cloud MSSQL Server.
 
 ### Response Code for Bank Simulator
 Payment Response Codes
-InvalidCard (Code: 4054)
+IHere's the information you provided presented in a tabular format for Payment Response Codes and Descriptions:
 
-Description: Indicates that the provided card information is invalid.
-CVVNotOk (Code: 4055)
+| Code   | Description                                                      |
+|--------|------------------------------------------------------------------|
+| 4054   | Indicates that the provided card information is invalid.         |
+| 4055   | Indicates that the CVV (Card Verification Value) provided is not valid. |
+| 4056   | Indicates that the card has expired.                             |
+| 4057   | Indicates that the payment transaction has timed out.            |
+| 4058   | Indicates that the card has been blacklisted and is not accepted. |
+| 4059   | Indicates that there are insufficient funds for the payment.     |
+| 0000   | Indicates a successful payment transaction.                     |
+| 4060   | Indicates that the card information is valid.                   |
+| 4062   | Indicates that the payment transaction has not yet started.      |
+| 4062   | Indicates that the payment transaction has been blocked.         |
+| 4063   | Indicates that the track data of the payment is invalid.         |
+| 4064   | Indicates that the payment is declined, do not honor the request. |
+| 4065   | Indicates that an unknown error has occurred during the payment process. |
 
-Description: Indicates that the CVV (Card Verification Value) provided is not valid.
-CardExpired (Code: 4056)
-
-Description: Indicates that the card has expired.
-Timeout (Code: 4057)
-
-Description: Indicates that the payment transaction has timed out.
-CardBlacklisted (Code: 4058)
-
-Description: Indicates that the card has been blacklisted and is not accepted.
-InsufficientFunds (Code: 4059)
-
-Description: Indicates that there are insufficient funds for the payment.
-Successful (Code: 0000)
-
-Description: Indicates a successful payment transaction.
-CardOK (Code: 4060)
-
-Description: Indicates that the card information is valid.
-NotStarted (Code: 4062)
-
-Description: Indicates that the payment transaction has not yet started.
-PaymentBlocked (Code: 4062)
-
-Description: Indicates that the payment transaction has been blocked.
-BadTrackData (Code: 4063)
-
-Description: Indicates that the track data of the payment is invalid.
-DeclinedDoNotHonour (Code: 4064)
-
-Description: Indicates that the payment is declined, do not honor the request.
-UnknownErrorOccured (Code: 4065)
-
-Description: Indicates that an unknown error has occurred during the payment process.
 
 
 
 ### Response Code for Payment API Gateway
-Transaction Status Codes
-TransactionCreated (Code: 5055)
 
-Description: Indicates that a transaction has been created.
-TransactionSuccessful (Code: 0000)
+| Code   | Description                                      |
+|--------|--------------------------------------------------|
+| 5055   | Indicates that a transaction has been created.   |
+| 0000   | Indicates a successful transaction.              |
+| 5056   | Indicates that a transaction has failed.         |
 
-Description: Indicates a successful transaction.
-TransactionFailed (Code: 5056)
-
-Description: Indicates that a transaction has failed.
+If you need any further assistance or have more data to include, please let me know!
 
