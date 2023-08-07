@@ -17,9 +17,10 @@ http://localhost:5293/swagger/index.html
 
 
 ## Running the Application With Docker
+
 I have pushed the image on my Docker Hub Repository which gives access to anyone to run the code
 
-Kindly navigate to the main part of the project where docker compose stays and run 
+Kindly navigate to the root directory of the project where docker compose stays and run 
 
  docker-compose up
 
