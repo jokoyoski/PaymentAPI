@@ -46,18 +46,21 @@ public class PaymentController : ControllerBase
             return BadRequest(ModelState);
         }
 
+         // Validate merchant
         var merchant = await GetValidMerchant(paymentRequest.MerchantCode);
         if (merchant == null)
         {
             return BadRequest("Invalid Merchant");
         }
 
+        // Validate currency
         var currency = await GetValidCurrency(paymentRequest.CurrencyCode);
         if (currency == null)
         {
             return BadRequest("Invalid Currency");
         }
 
+        // Get or create card record
         var cardRecord = await GetOrCreateCard(
             paymentRequest.CardNumber,
             paymentRequest.CVV,
@@ -65,6 +68,7 @@ public class PaymentController : ControllerBase
             paymentRequest.ExpiryYear
         );
 
+       // Create transaction view
         var transactionView = CreateTransactionView(
             paymentRequest.Amount,
             merchant.Id,
@@ -73,14 +77,19 @@ public class PaymentController : ControllerBase
             paymentRequest.CustomerCode
         );
 
+         // Upsert transaction
         _transactionService.UpsertTransaction(transactionView, false);
 
+        // Create acquirer payment request
         var acquirerPaymentRequest = CreateAcquirerPaymentRequest(paymentRequest, transactionView);
 
+        // Process payment
         IPaymentResponse paymentResponse = await _paymentProcessorService.ProcessPayment(acquirerPaymentRequest);
 
+        // Update transaction status
         var updatedTransaction = await UpdateTransactionStatus(transactionView, paymentResponse);
 
+        // Build response model
         var responseModel = new
         {
             TransactionReference = updatedTransaction.TransactionReference,
@@ -99,19 +108,20 @@ public class PaymentController : ControllerBase
         {
             return BadRequest(ModelState);
         }
-    
+        // Validate merchant
         var merchant = await GetValidMerchant(merchantCode);
         if (merchant == null)
         {
             return BadRequest("Invalid Merchant");
         }
-
+         // Validate tranRef
         var transaction = await _transactionService.GetTransactionByReference(paymentRef);
         if (transaction == null)
         {
             return BadRequest("Invalid TransactionRef");
         }
-
+        // Validate the order is for the merchan
+        //TO DO this can be moved down to the repository level
         if (transaction.MerchantId != merchant.Id)
         {
             return BadRequest("You are not allowed to view this TransactionRef");
@@ -192,17 +202,23 @@ public class PaymentController : ControllerBase
     }
     private async Task<ITransactionView> UpdateTransactionStatus(ITransactionView transactionView, IPaymentResponse paymentResponse)
     {
-        var transaction = await _transactionService.GetTransactionByReference(transactionView.TransactionReference);
+        // Get the transaction by reference
+        var existingTransaction = await _transactionService.GetTransactionByReference(transactionView.TransactionReference);
 
-        transaction.TransactionStatusCode = paymentResponse.StatusCode == PaymentResponseEnum.Successful
+        // Update the transaction status based on payment response
+        var newTransactionStatus = paymentResponse.StatusCode == PaymentResponseEnum.Successful
             ? TransactionStatusEnum.TransactionSuccessful
             : TransactionStatusEnum.TransactionFailed;
 
-        transaction.PaymentStatusCode = paymentResponse.StatusCode;
+        // Update the payment status code
+        existingTransaction.TransactionStatusCode = newTransactionStatus;
+        existingTransaction.PaymentStatusCode = paymentResponse.StatusCode;
 
-        _transactionService.UpsertTransaction(transaction, true);
+        // Update the transaction in the database
+        _transactionService.UpsertTransaction(existingTransaction, true);
 
-        return transaction;
+         // Return the updated transaction
+        return existingTransaction;
     }
     
     
