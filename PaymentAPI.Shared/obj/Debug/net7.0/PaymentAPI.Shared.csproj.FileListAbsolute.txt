@@ -1,0 +1,12 @@
+/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Shared/bin/Debug/net7.0/PaymentAPI.Shared.deps.json
+/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Shared/bin/Debug/net7.0/PaymentAPI.Shared.dll
+/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Shared/bin/Debug/net7.0/PaymentAPI.Shared.pdb
+/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Shared/obj/Debug/net7.0/PaymentAPI.Shared.csproj.AssemblyReference.cache
+/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Shared/obj/Debug/net7.0/PaymentAPI.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Shared/obj/Debug/net7.0/PaymentAPI.Shared.AssemblyInfoInputs.cache
+/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Shared/obj/Debug/net7.0/PaymentAPI.Shared.AssemblyInfo.cs
+/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Shared/obj/Debug/net7.0/PaymentAPI.Shared.csproj.CoreCompileInputs.cache
+/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Shared/obj/Debug/net7.0/PaymentAPI.Shared.dll
+/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Shared/obj/Debug/net7.0/refint/PaymentAPI.Shared.dll
+/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Shared/obj/Debug/net7.0/PaymentAPI.Shared.pdb
+/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Shared/obj/Debug/net7.0/ref/PaymentAPI.Shared.dll

@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "PaymentAPI.Domain/1.0.0": {
+        "dependencies": {
+          "PaymentAPI.Shared": "1.0.0"
+        },
+        "runtime": {
+          "PaymentAPI.Domain.dll": {}
+        }
+      },
+      "PaymentAPI.Shared/1.0.0": {
+        "runtime": {
+          "PaymentAPI.Shared.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PaymentAPI.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PaymentAPI.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

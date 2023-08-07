@@ -1,0 +1,89 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "PaymentAPI.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PaymentAPI.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PaymentAPI.Shared.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PaymentAPI.Shared/1.0.0": {
+      "type": "project",
+      "path": "../PaymentAPI.Shared/PaymentAPI.Shared.csproj",
+      "msbuildProject": "../PaymentAPI.Shared/PaymentAPI.Shared.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "PaymentAPI.Shared >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/adeolaoladeinde/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Domain/PaymentAPI.Domain.csproj",
+      "projectName": "PaymentAPI.Domain",
+      "projectPath": "/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Domain/PaymentAPI.Domain.csproj",
+      "packagesPath": "/Users/adeolaoladeinde/.nuget/packages/",
+      "outputPath": "/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Domain/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/adeolaoladeinde/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {
+            "/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Shared/PaymentAPI.Shared.csproj": {
+              "projectPath": "/Users/adeolaoladeinde/Projects/assessments/PaymentAPI/PaymentAPI.Shared/PaymentAPI.Shared.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/7.0.100/libexec/sdk/7.0.100/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
