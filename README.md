@@ -130,7 +130,7 @@ IHere's the information you provided presented in a tabular format for Payment R
 | Code   | Description                                      |
 |--------|--------------------------------------------------|
 | 5055   | Indicates that a transaction has been created.   |
-| 0000   | Indicates a successful transaction.              |
+| 5000   | Indicates a successful transaction.              |
 | 5056   | Indicates that a transaction has failed.         |
 
 If you need any further assistance or have more data to include, please let me know!
