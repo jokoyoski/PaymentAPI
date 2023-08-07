@@ -9,6 +9,13 @@ To run any migration ensure you have dotnet entity framework installed globally
 
  To run the command kindly run : dotnet tool install --global dotnet-ef
 
+ To run the app Kindly run 
+ ### Running the APP
+ dotnet run 
+
+ ### To Run the test Kindly Run 
+ dotnet test
+
 
 
 ### Migrations Command 
