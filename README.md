@@ -1,27 +1,41 @@
-Payment API
+# Payment API
 
-To run thr application, please ensure you have .net installed . possibly .net 7
+## Introduction
 
-This application uses swagger for API documentation and listens on 
+To run the application, please ensure you have .NET installed, preferably .NET 7.
+
+This application uses Swagger for API documentation and listens on:
 http://localhost:5293/swagger/index.html
 
-To run any migration ensure you have dotnet entity framework installed globally
+## Running the Application
 
- To run the command kindly run : dotnet tool install --global dotnet-ef
+1. Make sure you have .NET installed.
+2. Navigate to `/PaymentAPI` directory.
+3. Run the following command:
+   ```bash
+   dotnet run
 
- To run the app Kindly run 
- ### Running the APP
- dotnet run 
 
- ### To Run the test Kindly Run 
- dotnet test
+## Running the Test
+   
+To run the tests, navigate to the root directory of the solution and execute the following command:
+
+dotnet test
+
 
 
 
 ### Migrations Command 
+If you want to play with the migrations or add more columns
 
+Make sure you have Entity Framework tools installed globally. If not, run the following command to install them:
+
+dotnet tool install --global dotnet-ef
+
+To create and apply migrations, use the following commands:
 dotnet ef migrations add Init --project InfrastructureProject -s APIProject
 dotnet ef migrations add MerchantTable --project PaymentAPI.Data -s PaymentAPI
+
 
 
 
@@ -73,9 +87,6 @@ Feel free to let me know if you need any further assistance or if you have more 
 
 
 
-
-
-
 ### Database
 Database is a cloud MSSQL Server.
 
@@ -113,3 +124,9 @@ IHere's the information you provided presented in a tabular format for Payment R
 
 If you need any further assistance or have more data to include, please let me know!
 
+
+
+### Cloud Technology
+
+As a result for my love in docker , the Cloud technology i woulf use for the deployment is Amazon ECS . The current config 
+of this application is in appsettings.json that is somehow risky approach. The best approach would be to use Amazon Secret Manager to securely store sensitive configuration data, including database connection strings, API keys, and other confidential information. By doing so, I can effectively mitigate the risks associated with directly embedding these sensitive values in the application configuration.
