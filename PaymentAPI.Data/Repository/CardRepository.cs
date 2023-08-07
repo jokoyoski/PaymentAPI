@@ -27,28 +27,32 @@ public class CardRepository : ICardRepository
 
     
    public async Task<string> SaveCard(ICardDetailsView card)
-    {
-        string result = string.Empty;
-        var cardRecord = new Card
-        {
-            CardNumber = card.CardNumber,
-            CVV = card.CVV,
-            ExpiryMonth = card.ExpiryMonth,
-            ExpiryYear = card.ExpiryYear,
-            Id = new Guid()
-        };
-
+   {
+       string result = String.Empty;
         try
         {
-                _context.Cards.Add(cardRecord);
-                _context.SaveChanges();
+            var cardRecord = new Card
+            {
+                CardNumber = card.CardNumber,
+                CVV = card.CVV,
+                ExpiryMonth = card.ExpiryMonth,
+                ExpiryYear = card.ExpiryYear,
+                Id = Guid.NewGuid()
+            };
+
+            _context.Cards.Add(cardRecord);
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateException e)
+        {
+            result = $"Error adding card record: {e.Message}, Inner: {e.InnerException?.Message}";
         }
         catch (Exception e)
         {
-            result = string.Format("update FulfilmentScriptingPayment - {0} , {1}", e.Message,
-                e.InnerException != null ? e.InnerException.Message : "");
+            result = $"An unexpected error occurred: {e.Message}";
         }
 
         return result;
+
     }
 }
