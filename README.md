@@ -1,5 +1,5 @@
-Payment API Documentation
-Introduction
+### Payment API Documentation
+### Introduction
 This documentation provides comprehensive information about the Payment API. The API is designed to handle various aspects of payment processing, including merchant information, bank details, currency exchange, credit card transactions, and response codes.
 
 To run the application, please ensure that you have .NET installed, preferably .NET 7. The API is documented using Swagger, and you can access the API documentation at:
