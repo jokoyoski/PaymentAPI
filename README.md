@@ -1,43 +1,49 @@
-# Payment API
+Payment API Documentation
+Introduction
+This documentation provides comprehensive information about the Payment API. The API is designed to handle various aspects of payment processing, including merchant information, bank details, currency exchange, credit card transactions, and response codes.
 
-## Introduction
-
-To run the application, please ensure you have .NET installed, preferably .NET 7.
-
-This application uses Swagger for API documentation and listens on:
+To run the application, please ensure that you have .NET installed, preferably .NET 7. The API is documented using Swagger, and you can access the API documentation at:
 http://localhost:5293/swagger/index.html
 
-## Running the Application
+### Running the Application
+To run the application locally:
 
-1. Make sure you have .NET installed.
-2. Navigate to `/PaymentAPI` directory.
-3. Run the following command:
-   ```bash
-   dotnet run
+Ensure you have .NET installed.
+Navigate to the /PaymentAPI directory.
+Run the following command:
+
+dotnet run
+
+This will start the application, and you can access the API documentation at the provided URL.
 
 
-## Running the Application With Docker
 
-I have pushed the image on my Docker Hub Repository which gives access to anyone to run the code
+### Running the Application With Docker
+For convenient deployment using Docker:
 
-Kindly navigate to the root directory of the project where docker compose stays and run 
+Adding...
+Navigate to the root directory of the project where the docker-compose file is located.
+Run the following command:
 
- docker-compose up
+docker-compose up
 
-This starts the app and listens on 
-
+This will start the application in a Docker container, and you can access the API documentation at:
 http://localhost:5293/swagger/index.html
 
-## Running the Test
-   
-To run the tests, navigate to the root directory of the solution and execute the following command:
+
+
+### Running Tests
+To run the unit tests:
+
+Navigate to the root directory of the solution.
+Execute the following command:
 
 dotnet test
 
 
+### Database Migrations
 
 
-### Migrations Command 
 If you want to play with the migrations or add more columns
 
 Make sure you have Entity Framework tools installed globally. If not, run the following command to install them:
@@ -45,6 +51,7 @@ Make sure you have Entity Framework tools installed globally. If not, run the fo
 dotnet tool install --global dotnet-ef
 
 To create and apply migrations, use the following commands:
+
 dotnet ef migrations add Init --project InfrastructureProject -s APIProject
 dotnet ef migrations add MerchantTable --project PaymentAPI.Data -s PaymentAPI
 
@@ -140,8 +147,10 @@ If you need any further assistance or have more data to include, please let me k
 
 ### Cloud Technology
 
-As a result for my love in docker , the Cloud technology i woulf use for the deployment is Amazon ECS . The current config 
-of this application is in appsettings.json that is somehow risky approach. The best approach would be to use Amazon Secret Manager to securely store sensitive configuration data, including database connection strings, API keys, and other confidential information. By doing so, I can effectively mitigate the risks associated with directly embedding these sensitive values in the application configuration.
+Cloud Deployment
+For cloud deployment, Amazon ECS is the chosen technology. The current configuration, which is stored in appsettings.json, can be enhanced for security by using Amazon Secret Manager to securely store sensitive data like database connection strings and API keys.
+
+If you have any questions or need further assistance, please feel free to reach out!
 
 
 
